@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Keeper's Audio Tool</title>
+</head>
+<body>
+  <h1>fKAT</h1>
+  <form>
+      <label fo="fileInput">Select file...</label>
+      <input id="fileInput" type="file"/>
+  </form>
+  <script src="https://code.jquery.com/jquery-2.1.3.js"></script>
+  <script>
+      var context = new AudioContext();
+      $('#fileInput').change(function (event) {
+         var files = event.target.files;
+         $.each(files, function (i, file) {
+           console.log("Selected file: " + file.name + " (" + file.type + ")");
+             var reader = new FileReader();
+             reader.onload = function() {
+                 context.decodeAudioData(reader.result, function(data) {
+                    var source = context.createBufferSource();
+                    source.buffer = data;
+                    source.connect(context.destination);
+                    source.start(0);
+                 });
+             };
+             reader.readAsArrayBuffer(file);
+         });
+      });
+  </script>
+</body>
+</html>
