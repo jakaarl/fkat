@@ -1,6 +1,6 @@
-= fKAT Documentation
+# fKAT Documentation
 
-== Coding convention
+## Coding convention
 
 The number one rule: use common sense. Other important principles:
 
@@ -26,7 +26,7 @@ Also, indentation should be 4, not 2 spaces. And because of that,
 80 characters per line is awfully little - up to 120 characters per line
 is perfectly fine.
 
-== Best practices
+## Best practices
 
 Again, *think*. And learn as much as you can. Some sources:
 
